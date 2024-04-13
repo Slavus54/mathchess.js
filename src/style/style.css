@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700');
+
+* {
+    font-family: "Comfortaa", sans-serif;
+}
+
+body {
+    text-align: center;
+	overflow-x: hidden;
+}
+
+body::-webkit-scrollbar {
+	display: none;         
+}
+
+input[type=text] {
+	display: flex;
+	position: relative;
+	justify-content: center;
+	align-items: center;
+	font-size: 0.9rem;
+	font-weight: 200;
+	background-color: inherit;
+	border: none;
+	padding: 0rem 1rem;
+	transition: 0.1s ease-in-out;
+	background: transparent;
+	border-bottom: 2px solid #013668;
+	width: min(100%, 14rem);
+	letter-spacing: .05rem;
+	height: 3rem;
+	margin: 0rem 0rem 1rem 0rem;
+	outline: none;
+	user-select: none;
+}
+
+button {
+    display: flex;
+	position: relative;
+	justify-content: center;
+	align-items: center;
+	color: black;
+	background-color: inherit;
+	max-height: 3rem;
+	font-size: 1rem;
+	font-weight: 400;
+	padding: 1rem 1.25rem;
+	margin: 0.5rem 0rem;
+	border-radius: 0.2rem;
+	letter-spacing: 0.1rem;
+  	overflow: hidden;
+	user-select: none;
+	border: none;
+	cursor: pointer;
+}
+
+.main {
+	display: flex;
+	position: relative;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	flex-wrap: wrap;
+	color: #181C1F;
+	font-size: 18px;
+	width: 100%;
+	z-index: 1;
+}
+
+.board {
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    flex-flow: row wrap;
+    width: min(100%, 45rem);
+} 
+
+.cell {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+    width: 4rem;
+    height: 2rem;
+    background-color: #ccc;
+    border-radius: 0.25rem;
+    margin: 0.1rem;
+}
+
+.checked {
+    background-color: black;
+    color: white;
+}
+
+.cell__label {
+    position: absolute;
+    left: 0;
+    margin: 0.5rem;
+    font-size: 1rem;
+    color: white;
+    text-shadow: 0px 0px 2px black;
+}
+
+.pale {
+    opacity: .5;
+}
+
+.moves {
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    flex-basis: row nowrap;
+    width: min(40rem, 60%);
+    margin: 2rem;
+}
+
+.move {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    user-select: none;
+    cursor: pointer;
+    color: white;
+    width: min(5rem, 5%);
+    background-color: black;
+    border-radius: 0.5rem;
+    box-shadow: 0px 0px 3px 2px #ccc;
+    padding: 1rem 2rem;
+}
+
+.info {
+    border-radius: 0.5rem;
+    padding: 1rem 2rem;
+}
+
+@media (min-width: 626px) and (max-width: 688px) {
+    .cell {
+        width: 3.6rem;
+        height: 1.8rem;
+    }
+}
+
+@media (min-width: 592px) and (max-width: 626px) {
+    .cell {
+        width: 3.4rem;
+        height: 1.7rem;
+    }
+}
+
+@media (min-width: 560px) and (max-width: 592px) {
+    .cell {
+        width: 3.2rem;
+        height: 1.6rem;
+    }
+}
+
+@media (min-width: 528px) and (max-width: 560px) {
+    .cell {
+        width: 3rem;
+        height: 1.5rem;
+    }
+}
+
+@media (min-width: 496px) and (max-width: 528px) {
+    .cell {
+        width: 2.8rem;
+        height: 1.4rem;
+    }
+}
+
+@media (min-width: 464px) and (max-width: 496px) {
+    .cell {
+        width: 2.6rem;
+        height: 1.3rem;
+    }
+}
+
+@media (min-width: 432px) and (max-width: 464px) {
+    .cell {
+        width: 2.4rem;
+        height: 1.2rem;
+    }
+}
+
+@media (min-width: 412px) and (max-width: 432px) {
+    .cell {
+        width: 2.2rem;
+        height: 1.1rem;
+    }
+}
