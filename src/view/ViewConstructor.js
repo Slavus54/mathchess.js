@@ -1,3 +1,4 @@
+import {getResults} from '../store/store'
 import {letters, moves, max} from '../env/env'
 
 class ViewConstructor {
@@ -22,7 +23,13 @@ class ViewConstructor {
             let position = document.createElement('span')
             let points = document.createElement('span')
             let inp = document.createElement('input')
+            let btnContainer = document.createElement('div')
+            let save = document.createElement('button')
             let btn = document.createElement('button')
+            let resultsHeadline = document.createElement('h3')
+            let resultsContainer = document.createElement('div')
+
+            let results = getResults()
 
             board.classList.add('board')
             keyboard.classList.add('moves')
@@ -32,9 +39,15 @@ class ViewConstructor {
             inp.classList.add('value')
             inp.setAttribute('type', 'text')
             inp.placeholder = 'Enter value'
+            btnContainer.classList.add('items')
+
+            save.id = 'save-btn'
             btn.id = 'check-btn'
 
             btn.textContent = 'Check'
+            save.textContent = 'Save'
+
+            resultsHeadline.textContent = 'Results'
 
             for (let i = 0; i < letters.length; i++) {
                 let letter = letters[i]
@@ -72,7 +85,21 @@ class ViewConstructor {
                 keyboard.appendChild(key)
             }
 
+            for (let i = 0; i < results.length; i++) {
+                let result = document.createElement('div')
+                let value = results[i]
+
+                result.classList.add('item')
+
+                result.textContent = `Cell: ${value.cell}, points: ${value.points}`
+
+                resultsContainer.appendChild(result)
+            }
+
             headline.textContent = 'Loading...'
+
+            btnContainer.appendChild(save)
+            btnContainer.appendChild(btn)
 
             container.appendChild(board)
             container.appendChild(keyboard)
@@ -80,7 +107,9 @@ class ViewConstructor {
             container.appendChild(position)
             container.appendChild(points)
             container.appendChild(inp)
-            container.appendChild(btn)
+            container.appendChild(btnContainer)
+            container.appendChild(resultsHeadline)
+            container.appendChild(resultsContainer)
         }
 
         this.childs.map(el => {

@@ -1,4 +1,5 @@
 export const letters = ['A', 'B', 'C', 'E', 'F', 'G', 'H', 'I', 'J', 'K']
+
 export const moves = [
     {
         title: 'Up',
@@ -26,4 +27,7 @@ export const moves = [
     }
 ]
 
+export const result_key = 'games'
+
 export const max = 10
+export const result_limit = 3

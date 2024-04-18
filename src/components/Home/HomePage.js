@@ -1,5 +1,7 @@
+import {Datus} from 'datus.js'
 import ComponentContainer from '../ComponentContainer'
 import {spawn, go, convert} from '../../engine/engine'
+import {initResults, saveResult, getResults} from '../../store/store'
 import {TimeBar} from './UI/TimeBar'
 
 class HomePage extends ComponentContainer {
@@ -8,6 +10,7 @@ class HomePage extends ComponentContainer {
         
         this.key = 'Home'
         this.childs = [TimeBar]
+        this.datus = new Datus()
         this.render()
     }
 
@@ -19,13 +22,17 @@ class HomePage extends ComponentContainer {
         let positionLabel = document.querySelector('.position')
         let pointsLabel = document.querySelector('.points')
         let input = document.querySelector('.value')
-        let btn = document.getElementById('check-btn')
+        let checkBtn = document.getElementById('check-btn')
+        let saveBtn = document.getElementById('save-btn')
 
         const eventSource = new EventSource('http://localhost:4000/welcome')
 
         eventSource.onmessage = message => {
             headline.textContent = message.data
         }
+
+        initResults()
+        console.log(getResults())
     
         const {cell, row} = spawn()
 
@@ -72,14 +79,14 @@ class HomePage extends ComponentContainer {
             value = Number(e.target.value)
         })
 
-        btn.addEventListener('click', () => {
+        checkBtn.addEventListener('click', () => {
             if (value === checkValue) {
                 points++
 
                 position = nextPosition
                 label = convert(position[0], position[1])
 
-                positionLabel.textContent = 'Current Position: ' + label
+                positionLabel.textContent = 'Current Position: ' + label + ` (${position[1]}/10)`
                 pointsLabel.textContent = 'Points: ' + points
                 exampleLabel.textContent = 'Example: ?'
 
@@ -94,6 +101,11 @@ class HomePage extends ComponentContainer {
 
             isAnswered = true
         })       
+
+        saveBtn.addEventListener('click', () => {
+            saveResult(label, points, this.datus.timestamp('date'))
+            window.location.reload()
+        })
     }
 }
 
