@@ -25,5 +25,4 @@ Store results of games in *LocalStorage*.
 
 ### Screens  
 
-
-![sc1](https://github.com/Slavus54/mathchess.js/assets/54140819/67492929-dc8a-40ac-bf99-d3fcb4a7bbd3)
+![sc2](https://github.com/Slavus54/mathchess.js/assets/54140819/b7829e5c-bdca-4622-8d1e-28558fd4f926)
